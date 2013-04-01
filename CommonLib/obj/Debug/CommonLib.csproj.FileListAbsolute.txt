@@ -10,3 +10,10 @@ D:\Development\Projects\C#\CommonLib\CommonLib\obj\Debug\CommonLib.pdb
 D:\Development\Projects\C#\CommonLib\CommonLib\obj\Debug\CommonLib.csprojResolveAssemblyReference.cache
 D:\Development\Projects\C#\CommonLib\CommonLib\bin\Debug\nunit.framework.dll
 D:\Development\Projects\C#\CommonLib\CommonLib\bin\Debug\nunit.framework.xml
+e:\Development\Projects\C#\CommonLibrary.git\CommonLib\bin\Debug\CommonLib.dll
+e:\Development\Projects\C#\CommonLibrary.git\CommonLib\bin\Debug\CommonLib.pdb
+e:\Development\Projects\C#\CommonLibrary.git\CommonLib\bin\Debug\nunit.framework.dll
+e:\Development\Projects\C#\CommonLibrary.git\CommonLib\bin\Debug\nunit.framework.xml
+e:\Development\Projects\C#\CommonLibrary.git\CommonLib\obj\Debug\CommonLib.csprojResolveAssemblyReference.cache
+e:\Development\Projects\C#\CommonLibrary.git\CommonLib\obj\Debug\CommonLib.dll
+e:\Development\Projects\C#\CommonLibrary.git\CommonLib\obj\Debug\CommonLib.pdb

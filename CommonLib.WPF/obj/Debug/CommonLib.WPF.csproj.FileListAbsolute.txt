@@ -1,0 +1,9 @@
+E:\Development\Projects\C#\CommonLibrary.git\CommonLib.WPF\obj\Debug\CommonLib.WPF.csprojResolveAssemblyReference.cache
+E:\Development\Projects\C#\CommonLibrary.git\CommonLib.WPF\bin\Debug\CommonLib.WPF.dll
+E:\Development\Projects\C#\CommonLibrary.git\CommonLib.WPF\bin\Debug\CommonLib.WPF.pdb
+E:\Development\Projects\C#\CommonLibrary.git\CommonLib.WPF\obj\Debug\CommonLib.WPF.dll
+E:\Development\Projects\C#\CommonLibrary.git\CommonLib.WPF\obj\Debug\CommonLib.WPF.pdb
+E:\Development\Projects\C#\CommonLibrary.git\CommonLib.WPF\bin\Debug\CommonLib.dll
+E:\Development\Projects\C#\CommonLibrary.git\CommonLib.WPF\bin\Debug\nunit.framework.dll
+E:\Development\Projects\C#\CommonLibrary.git\CommonLib.WPF\bin\Debug\CommonLib.pdb
+E:\Development\Projects\C#\CommonLibrary.git\CommonLib.WPF\bin\Debug\nunit.framework.xml

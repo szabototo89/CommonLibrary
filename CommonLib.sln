@@ -3,6 +3,8 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2012
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CommonLib", "CommonLib\CommonLib.csproj", "{BF060726-16C4-438E-97F1-C1A2617DE8C9}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CommonLib.WPF", "CommonLib.WPF\CommonLib.WPF.csproj", "{0DC95A42-DB15-4765-8335-00724A604BF2}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -13,6 +15,10 @@ Global
 		{BF060726-16C4-438E-97F1-C1A2617DE8C9}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{BF060726-16C4-438E-97F1-C1A2617DE8C9}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{BF060726-16C4-438E-97F1-C1A2617DE8C9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0DC95A42-DB15-4765-8335-00724A604BF2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0DC95A42-DB15-4765-8335-00724A604BF2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0DC95A42-DB15-4765-8335-00724A604BF2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0DC95A42-DB15-4765-8335-00724A604BF2}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
