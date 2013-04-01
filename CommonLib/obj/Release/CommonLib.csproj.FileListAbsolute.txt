@@ -1,0 +1,7 @@
+D:\Development\Projects\C#\CommonLib\CommonLib\bin\Release\CommonLib.dll
+D:\Development\Projects\C#\CommonLib\CommonLib\bin\Release\CommonLib.pdb
+D:\Development\Projects\C#\CommonLib\CommonLib\bin\Release\nunit.framework.dll
+D:\Development\Projects\C#\CommonLib\CommonLib\bin\Release\nunit.framework.xml
+D:\Development\Projects\C#\CommonLib\CommonLib\obj\Release\CommonLib.csprojResolveAssemblyReference.cache
+D:\Development\Projects\C#\CommonLib\CommonLib\obj\Release\CommonLib.dll
+D:\Development\Projects\C#\CommonLib\CommonLib\obj\Release\CommonLib.pdb

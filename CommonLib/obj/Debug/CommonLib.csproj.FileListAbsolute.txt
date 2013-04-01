@@ -1,0 +1,12 @@
+C:\Users\Tomi\AppData\Local\Temporary Projects\CommonLib\bin\Debug\CommonLib.dll
+C:\Users\Tomi\AppData\Local\Temporary Projects\CommonLib\bin\Debug\CommonLib.pdb
+C:\Users\Tomi\AppData\Local\Temporary Projects\CommonLib\obj\Debug\CommonLib.csprojResolveAssemblyReference.cache
+C:\Users\Tomi\AppData\Local\Temporary Projects\CommonLib\obj\Debug\CommonLib.dll
+C:\Users\Tomi\AppData\Local\Temporary Projects\CommonLib\obj\Debug\CommonLib.pdb
+D:\Development\Projects\C#\CommonLib\CommonLib\bin\Debug\CommonLib.dll
+D:\Development\Projects\C#\CommonLib\CommonLib\bin\Debug\CommonLib.pdb
+D:\Development\Projects\C#\CommonLib\CommonLib\obj\Debug\CommonLib.dll
+D:\Development\Projects\C#\CommonLib\CommonLib\obj\Debug\CommonLib.pdb
+D:\Development\Projects\C#\CommonLib\CommonLib\obj\Debug\CommonLib.csprojResolveAssemblyReference.cache
+D:\Development\Projects\C#\CommonLib\CommonLib\bin\Debug\nunit.framework.dll
+D:\Development\Projects\C#\CommonLib\CommonLib\bin\Debug\nunit.framework.xml
