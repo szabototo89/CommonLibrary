@@ -17,3 +17,10 @@ e:\Development\Projects\C#\CommonLibrary.git\CommonLib\bin\Debug\nunit.framework
 e:\Development\Projects\C#\CommonLibrary.git\CommonLib\obj\Debug\CommonLib.csprojResolveAssemblyReference.cache
 e:\Development\Projects\C#\CommonLibrary.git\CommonLib\obj\Debug\CommonLib.dll
 e:\Development\Projects\C#\CommonLibrary.git\CommonLib\obj\Debug\CommonLib.pdb
+D:\Development\Projects\C#\CommonLibrary\CommonLib\bin\Debug\CommonLib.dll
+D:\Development\Projects\C#\CommonLibrary\CommonLib\bin\Debug\CommonLib.pdb
+D:\Development\Projects\C#\CommonLibrary\CommonLib\bin\Debug\nunit.framework.dll
+D:\Development\Projects\C#\CommonLibrary\CommonLib\bin\Debug\nunit.framework.xml
+D:\Development\Projects\C#\CommonLibrary\CommonLib\obj\Debug\CommonLib.csprojResolveAssemblyReference.cache
+D:\Development\Projects\C#\CommonLibrary\CommonLib\obj\Debug\CommonLib.dll
+D:\Development\Projects\C#\CommonLibrary\CommonLib\obj\Debug\CommonLib.pdb

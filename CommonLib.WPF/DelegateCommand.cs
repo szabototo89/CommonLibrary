@@ -21,12 +21,11 @@ namespace CommonLib.WPF
 		public event EventHandler CanExecuteChanged;
 
 		public DelegateCommand(Action<T> execute)
-			: this(execute, null)
+			: this(null, execute)
 		{
 		}
 
-		public DelegateCommand(Action<T> execute,
-		                       Predicate<T> canExecute)
+		public DelegateCommand(Predicate<T> canExecute, Action<T> execute)
 		{
 			_execute = execute;
 			_canExecute = canExecute;
