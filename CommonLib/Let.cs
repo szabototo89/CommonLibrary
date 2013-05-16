@@ -16,6 +16,7 @@ namespace CommonLib
 			return new Let<TValue>(that).Be(func);
 		}
 
+		#region Case features
 		public static Case<TType> If<TType>(Func<bool> condition, Func<TType> value)
 		{
 			return new Case<TType>().If(condition, value);
@@ -35,6 +36,7 @@ namespace CommonLib
 		{
 			return new Case<TType>().If(() => condition, () => value);
 		}
+		#endregion
 	}
 
 	public class Let<TValue>

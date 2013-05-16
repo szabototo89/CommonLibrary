@@ -55,6 +55,7 @@
     <Compile Include="Tests\EnsureTest.cs" />
     <Compile Include="Tests\LetTest.cs" />
     <Compile Include="Tests\ObjectTest.cs" />
+    <Compile Include="Tests\ResultTest.cs" />
     <Compile Include="Tests\ValidateTest.cs" />
     <Compile Include="Validate.cs" />
   </ItemGroup>
