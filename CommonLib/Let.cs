@@ -16,6 +16,11 @@ namespace CommonLib
 			return new Let<TValue>(that).Be(func);
 		}
 
+		public static Let<TValue> Default<TValue>(TValue that, TValue defaultValue)
+		{
+			return new Let<TValue>(that).Default(defaultValue);
+		}
+
 		#region Case features
 		public static Case<TType> If<TType>(Func<bool> condition, Func<TType> value)
 		{
@@ -51,6 +56,19 @@ namespace CommonLib
 		public Let<TReturn> Be<TReturn>(Func<TValue, TReturn> func)
 		{
 			return new Let<TReturn>(func(Value));
+		}
+
+		public Let<TValue> Default(TValue defaultValue)
+		{
+			return new Let<TValue>(Equals(default(TValue), Value) ? defaultValue : Value);
+		}
+
+		public static implicit operator TValue(Let<TValue> letValue)
+		{
+			if (letValue == null)
+				throw new ArgumentNullException("letValue");
+
+			return letValue.Value;
 		}
 	}
 }

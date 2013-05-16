@@ -14,6 +14,24 @@ namespace CommonLib.Extensions
 			return new Let<TObject>(that);
 		}
 
+		/// <summary>
+		/// Initializes object with default constructor
+		/// </summary>
+		public static Let<TType> Default<TType>(this TType that)
+			where TType: new()
+		{
+			return Default(that, new TType());
+		}
+
+		/// <summary>
+		/// It returns a default value or 'that' object.
+		/// </summary>
+		public static Let<TType> Default<TType>(this TType that, TType defaultValue)
+		{
+			return that.Let().Default(defaultValue);
+		}
+
+
 		public static bool IsNull<TValue>(this TValue that) where TValue : class
 		{
 			return that == null;
