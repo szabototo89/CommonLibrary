@@ -11,6 +11,5 @@ namespace CommonLib
 				that = initialization();
 			return that;
 		}
-
 	}
 }

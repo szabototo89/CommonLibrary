@@ -1,21 +1,39 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace CommonLib
 {
-	public class Let
+	public static class Let
 	{
-		public Let<TReturn> Be<TReturn>(Func<TReturn> func)
+		public static Let<TReturn> Be<TReturn>(Func<TReturn> func)
 		{
 			return new Let<TReturn>(func());
 		}
 
-		public Let<TReturn> Be<TValue, TReturn>(TValue that, Func<TValue, TReturn> func)
+		public static Let<TReturn> Be<TValue, TReturn>(TValue that, Func<TValue, TReturn> func)
 		{
 			return new Let<TValue>(that).Be(func);
+		}
+
+		public static Case<TType> If<TType>(Func<bool> condition, Func<TType> value)
+		{
+			return new Case<TType>().If(condition, value);
+		}
+
+		public static Case<TType> If<TType>(Func<bool> condition, TType value)
+		{
+			return new Case<TType>().If(condition, () => value);
+		}
+
+		public static Case<TType> If<TType>(bool condition, Func<TType> value)
+		{
+			return If(() => condition, value);
+		}
+
+		public static Case<TType> If<TType>(bool condition, TType value)
+		{
+			return new Case<TType>().If(() => condition, () => value);
 		}
 	}
 
@@ -23,7 +41,7 @@ namespace CommonLib
 	{
 		public TValue Value { get; protected set; }
 
-		public Let(TValue that)
+		internal Let(TValue that)
 		{
 			Value = that;
 		}

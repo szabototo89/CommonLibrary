@@ -1,5 +1,4 @@
 using System;
-using System.Diagnostics;
 using System.Globalization;
 
 namespace CommonLib.WPF.Converters
@@ -73,23 +72,6 @@ namespace CommonLib.WPF.Converters
 				throw new NullReferenceException("ConvertBackFunction cannot be null!");
 
 			return ConvertBackFunction(value, targetType, parameter, culture);
-		}
-	}
-
-	public class DebugConverter : ValueConverter<object, object>
-	{
-		public DebugConverter()
-			: base(value =>
-			{
-				Debugger.Break();
-				return value;
-			}, value =>
-			{
-				Debugger.Break();
-				return value;
-			})
-		{
-
 		}
 	}
 }

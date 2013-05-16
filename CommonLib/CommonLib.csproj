@@ -41,6 +41,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Bindable.cs" />
+    <Compile Include="Case.cs" />
     <Compile Include="Extensions\BoolExtension.cs" />
     <Compile Include="Check.cs" />
     <Compile Include="Ensure.cs" />
@@ -52,6 +53,7 @@
     <Compile Include="Result.cs" />
     <Compile Include="Tests\BindableTest.cs" />
     <Compile Include="Tests\EnsureTest.cs" />
+    <Compile Include="Tests\LetTest.cs" />
     <Compile Include="Tests\ObjectTest.cs" />
     <Compile Include="Tests\ValidateTest.cs" />
     <Compile Include="Validate.cs" />

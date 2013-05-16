@@ -12,7 +12,7 @@ namespace CommonLib.Extensions
 			while (values.Any() && (result = values.First())) { }
 			return result;
 		}
-		
+
 		public static bool And(params bool[] values)
 		{
 			Ensure.Is(values).NotNull();

@@ -48,6 +48,7 @@
     <Compile Include="ActionCommand.cs" />
     <Compile Include="BuilderControl\IBuilderFactory.cs" />
     <Compile Include="ControlHelper.cs" />
+    <Compile Include="Converters\DebugConverter.cs" />
     <Compile Include="DelegateCommand.cs" />
     <Compile Include="Extensions\PointExtension.cs" />
     <Compile Include="Converters\IValueConverter.cs" />
