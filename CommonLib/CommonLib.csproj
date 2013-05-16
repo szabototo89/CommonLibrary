@@ -42,6 +42,7 @@
   <ItemGroup>
     <Compile Include="Bindable.cs" />
     <Compile Include="Case.cs" />
+    <Compile Include="Results\ExceptionResult.cs" />
     <Compile Include="Extensions\BoolExtension.cs" />
     <Compile Include="Check.cs" />
     <Compile Include="Ensure.cs" />
@@ -49,8 +50,10 @@
     <Compile Include="Lazy.cs" />
     <Compile Include="Let.cs" />
     <Compile Include="Extensions\ObjectExtension.cs" />
+    <Compile Include="Results\MessageResult.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Result.cs" />
+    <Compile Include="Results\Result.cs" />
+    <Compile Include="Results\ResultBase.cs" />
     <Compile Include="Tests\BindableTest.cs" />
     <Compile Include="Tests\EnsureTest.cs" />
     <Compile Include="Tests\LetTest.cs" />
@@ -62,6 +65,7 @@
   <ItemGroup>
     <None Include="packages.config" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

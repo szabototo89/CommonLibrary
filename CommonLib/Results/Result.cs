@@ -1,15 +1,11 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
-namespace CommonLib
+namespace CommonLib.Results
 {
-	public class Result<TValue>
+	public class Result<TValue> : ResultBase<TValue>
 	{
 		private static readonly Result<TValue> _None = new Result<TValue>(default(TValue));
-		private static readonly Result<TValue> _Error = new Result<TValue>(default(TValue)); 
+		private static readonly Result<TValue> _Error = new Result<TValue>(default(TValue));
 
 		public static Result<TValue> None
 		{
@@ -21,22 +17,18 @@ namespace CommonLib
 			get { return _Error; }
 		}
 
-		public TValue Value { get; protected set; }
-
-		public bool IsSuccess
+		public override bool IsSuccess
 		{
 			get { return !Equals(this, _None); }
 		}
 
-		public bool IsError
+		public virtual bool IsError
 		{
 			get { return Equals(this, _Error); }
 		}
 
-		internal Result(TValue value)
-		{
-			Value = value;
-		}
+		protected Result(TValue value)
+			: base(value) { }
 
 		public static implicit operator Result<TValue>(TValue value)
 		{
@@ -45,6 +37,8 @@ namespace CommonLib
 
 		public static implicit operator TValue(Result<TValue> result)
 		{
+			if (result == null)
+				throw new ArgumentNullException("result");
 			return result.Value;
 		}
 	}

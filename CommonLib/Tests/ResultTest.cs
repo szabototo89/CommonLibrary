@@ -1,4 +1,6 @@
-﻿using NUnit.Framework;
+﻿using System;
+using CommonLib.Results;
+using NUnit.Framework;
 
 namespace CommonLib.Tests
 {
@@ -20,9 +22,30 @@ namespace CommonLib.Tests
 		}
 
 		[Test]
+		public void ExceptionResult()
+		{
+			ExceptionResult<string, NullReferenceException> result = "Hello World!";
+
+			Assert.IsTrue(result.IsSuccess);
+			Assert.IsFalse(result.Thrown);
+
+			Assert.IsTrue(result == "Hello World!");
+
+			result = new NullReferenceException("Hello World!");
+			Assert.IsFalse(result.IsSuccess);
+			Assert.IsTrue(result.Thrown);
+
+			Exception ex = result;
+
+			Assert.IsTrue(ex != null && 
+						  ex.Message == "Hello World!");
+		}
+
+		[Test]
 		public void HelloTest()
 		{
 			Assert.IsTrue(Hello("Tomi") == "Tomi");
+			Assert.IsTrue("Tomi" == Hello("Tomi"));
 			Assert.AreEqual(Hello(""), Result<string>.None);
 			Assert.AreEqual(Hello(null), Result<string>.Error);
 		}
