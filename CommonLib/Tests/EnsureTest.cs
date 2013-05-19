@@ -7,11 +7,16 @@ using NUnit.Framework;
 
 namespace CommonLib.Tests
 {
-	internal class EnsureTest
+	class EnsureTest
 	{
 		[Test]
 		public void NotNullTest()
 		{
+			Assert.Throws<ArgumentNullException>(() => {
+				string str = null;
+				Ensure.Is(() => str).NotNull();
+			});
+
 			Assert.DoesNotThrow(() => Ensure.Is("Hello World").NotNull());
 			Assert.DoesNotThrow(() => Ensure.Are("Hello World", "Hi All").NotNull(new ArgumentNullException()));
 			Assert.DoesNotThrow(() => Ensure.Are("Hello World", "Hi All", new object()).NotNull(new ArgumentNullException()));
@@ -57,8 +62,8 @@ namespace CommonLib.Tests
 		public void CatchTest()
 		{
 			Assert.DoesNotThrow(() => Ensure.Do(() => { throw new Exception(); })
-										    .Catch((Exception ex) => Console.Write("Exception raised!"))
-										    .Invoke());
+											.Catch((Exception ex) => Console.Write("Exception raised!"))
+											.Invoke());
 		}
 	}
 }

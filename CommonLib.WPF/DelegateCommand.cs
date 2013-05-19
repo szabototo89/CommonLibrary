@@ -3,6 +3,9 @@ using System.Windows.Input;
 
 namespace CommonLib.WPF
 {
+	/// <summary>
+	/// Generic command
+	/// </summary>
 	public class DelegateCommand<T> : ICommand
 	{
 		private readonly Predicate<T> _canExecute;
@@ -34,9 +37,7 @@ namespace CommonLib.WPF
 		public bool CanExecute(T parameter)
 		{
 			if (_canExecute == null)
-			{
 				return true;
-			}
 
 			return _canExecute(parameter);
 		}
@@ -44,6 +45,16 @@ namespace CommonLib.WPF
 		public void Execute(T parameter)
 		{
 			_execute(parameter);
+		}
+
+		public static DelegateCommand<T> Instance(Action<T> execute)
+		{
+			return Instance(null, execute);
+		} 
+
+		public static DelegateCommand<T> Instance(Predicate<T> canExecute, Action<T> execute)
+		{
+			return new DelegateCommand<T>(canExecute, execute);
 		}
 
 		protected void OnCanExecuteChanged()

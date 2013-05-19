@@ -1,10 +1,12 @@
 ﻿using System;
-using CommonLib.Results;
 
 namespace CommonLib
 {
 	public enum UnionDirection { Left, Right }
 
+	/// <summary>
+	/// Generic union datastructure. 
+	/// </summary>
 	public struct Union<TLeft, TRight>
 	{
 		public UnionDirection Direction { get; private set; }
@@ -23,6 +25,34 @@ namespace CommonLib
 		{
 			Right = value;
 			Direction = UnionDirection.Right;
+		}
+
+		public void GetValue(Action<TLeft> left, Action<TRight> right)
+		{
+			if (left == null)
+				throw new ArgumentNullException("left");
+			if (right == null)
+				throw new ArgumentNullException("right");
+
+			switch (Direction)
+			{
+				case UnionDirection.Left:
+					left(Left);
+					break;
+				case UnionDirection.Right:
+					right(Right);
+					break;
+			}
+		}
+
+		public void GetValue(Action<TLeft> left)
+		{
+			GetValue(left, _ => { });
+		}
+
+		public void GetValue(Action<TRight> right)
+		{
+			GetValue(_ => { }, right);
 		}
 
 		public static implicit operator Union<TLeft, TRight>(TLeft left)

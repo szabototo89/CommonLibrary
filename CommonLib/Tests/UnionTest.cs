@@ -3,7 +3,7 @@ using NUnit.Framework;
 
 namespace CommonLib.Tests
 {
-	public class UnionTest
+	class UnionTest
 	{
 		[Test]
 		public void InitTest()
@@ -28,7 +28,7 @@ namespace CommonLib.Tests
 		{
 			var random = new Random();
 
-			if (random.NextDouble() > 0.5)
+			if (random.NextDouble() >= 0.5)
 				return random.Next(0, 100);
 
 			return "Hello World!";

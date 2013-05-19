@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Data;
 using System.Linq;
+using System.Linq.Expressions;
 using System.Reflection;
 using System.Text;
 using System.Text.RegularExpressions;
@@ -15,6 +16,13 @@ namespace CommonLib
 		public static Ensure<TValue> Is<TValue>(TValue that)
 		{
 			return new Ensure<TValue>(that);
+		}
+
+		public static EnsureExpression<TValue> Is<TValue>(Expression<Func<TValue>> that)
+		{
+			if (that == null)
+				throw new ArgumentNullException("that");
+			return new EnsureExpression<TValue>(that);
 		}
 
 		public static IEnumerable<Ensure<TValue>> Are<TValue>(params TValue[] values)
@@ -33,13 +41,31 @@ namespace CommonLib
 		}
 	}
 
-	public sealed class Ensure<TValue>
+	public class Ensure<TValue>
 	{
-		public TValue Value { get; private set; }
+		public TValue Value { get; protected set; }
+
+		internal Ensure() { }
 
 		internal Ensure(TValue value)
 		{
 			Value = value;
+		}
+	}
+
+	public class EnsureExpression<TValue> : Ensure<TValue>
+	{
+		public MemberExpression ValueExpression { get; protected set; }
+
+		public string MemberName { get { return ValueExpression.Member.Name; } }
+
+		internal EnsureExpression(Expression<Func<TValue>> valueExpression)
+		{
+			ValueExpression = valueExpression.Body as MemberExpression;
+			if (ValueExpression == null)
+				throw new InvalidConstraintException("Type of 'ValueExpression' must be a MemberExpression!");
+
+			Value = valueExpression.Compile()();
 		}
 	}
 
@@ -57,6 +83,11 @@ namespace CommonLib
 
 			return _values;
 		}
+
+		public static EnsureExpression<TReturns> Is<TValue, TReturns>(this EnsureExpression<TValue> that, Expression<Func<TReturns>> value)
+		{
+			return Ensure.Is(value);
+		} 
 
 		public static Ensure<TReturns> Is<TValue, TReturns>(this Ensure<TValue> that, TReturns value)
 		{
@@ -92,6 +123,29 @@ namespace CommonLib
 			return Ensure.Are(that.Value, value);
 		}*/
 
+		public static EnsureExpression<TValue> NotNull<TValue>(this EnsureExpression<TValue> that, Exception exception)
+			where TValue : class
+		{
+			if (that == null)
+				throw new ArgumentNullException("that");
+			if (exception == null)
+				throw new ArgumentNullException("exception");
+
+			if (that.Value == null)
+				throw exception;
+
+			return that;
+		}
+
+		public static EnsureExpression<TValue> NotNull<TValue>(this EnsureExpression<TValue> that)
+			where TValue : class
+		{
+			if (that == null)
+				throw new ArgumentNullException("that");
+
+			return NotNull(that, new ArgumentNullException(that.MemberName));
+		} 
+
 		public static Ensure<TValue> NotNull<TValue>(this Ensure<TValue> that, string parameterName = "") where TValue : class
 		{
 			return NotNull(that, new ArgumentNullException(string.Format("{0} cannot be null!", parameterName)));
@@ -117,6 +171,11 @@ namespace CommonLib
 			return values.ApplyToArray(value => value.NotNull(exception));
 		}
 
+		public static EnsureExpression<string> NotBlank(this EnsureExpression<string> that)
+		{
+			return null;
+		}
+
 		public static Ensure<string> NotBlank(this Ensure<string> that, string parameterName = "")
 		{
 			return that.NotBlank(new ArgumentException(string.Format("{0} cannot be blank!", parameterName)));
@@ -134,7 +193,7 @@ namespace CommonLib
 		{
 			return values.ApplyToArray(value => value.NotBlank());
 		}
-		
+
 		public static IEnumerable<Ensure<string>> NotBlank(this IEnumerable<Ensure<string>> values, Exception exception)
 		{
 			return values.ApplyToArray(value => value.NotBlank(exception));
@@ -242,8 +301,7 @@ namespace CommonLib
 			if (that == null || that.Value == null)
 				throw new ArgumentNullException("that");
 
-			return new Ensure<Action>(() =>
-			{
+			return new Ensure<Action>(() => {
 				try
 				{
 					that.Value();

@@ -3,7 +3,7 @@ using NUnit.Framework;
 
 namespace CommonLib.Tests
 {
-	public class LetTest
+	class LetTest
 	{
 		private const string HELLO_WORLD_MESSAGE = "Hello World";
 

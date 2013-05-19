@@ -1,8 +1,8 @@
-namespace CommonLib.Results
+namespace CommonLib.Options
 {
-	public abstract class ResultBase<TValue>
+	public abstract class OptionBase<TValue>
 	{
-		protected ResultBase(TValue value)
+		protected OptionBase(TValue value)
 		{
 			Value = value;
 		}
