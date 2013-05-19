@@ -64,14 +64,25 @@
     <Compile Include="Tests\ResultTest.cs" />
     <Compile Include="Tests\UnionTest.cs" />
     <Compile Include="Tests\ValidateTest.cs" />
+    <Compile Include="TextTemplates\ParseMethods.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ParseMethods.tt</DependentUpon>
+    </Compile>
     <Compile Include="Try.cs" />
     <Compile Include="Union.cs" />
     <Compile Include="Validate.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
+    <None Include="TextTemplates\ParseMethods.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>ParseMethods.cs</LastGenOutput>
+    </None>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

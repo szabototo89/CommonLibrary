@@ -225,6 +225,22 @@ namespace CommonLib
 			return that.Requires(predicate, new Exception(string.Format("Invalid value of {0}!", parameterName)));
 		}
 
+		public static EnsureExpression<TValue> Requires<TValue>(this EnsureExpression<TValue> that, Predicate<TValue> predicate)
+		{
+			return that.Requires(predicate, new Exception(string.Format("Invalid value of {0}!", that.MemberName)));
+		}
+
+		public static EnsureExpression<TValue> Requires<TValue>(this EnsureExpression<TValue> that, Predicate<TValue> predicate, Exception exception)
+		{
+			Ensure.Is(() => predicate).NotNull()
+				  .Is(() => that).NotNull();
+
+			if (!predicate(that.Value))
+				throw exception;
+
+			return that;
+		} 
+
 		public static IEnumerable<Ensure<TValue>> Require<TValue>(this IEnumerable<Ensure<TValue>> values, Predicate<TValue> predicate, Exception exception)
 		{
 			return values.ApplyToArray(value => value.Requires(predicate, exception));

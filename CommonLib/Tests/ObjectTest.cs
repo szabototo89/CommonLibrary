@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using CommonLib.Extensions;
+using CommonLib.Options;
 using NUnit.Framework;
 
 namespace CommonLib.Tests
@@ -37,6 +38,6 @@ namespace CommonLib.Tests
 
 			Assert.Null(list);
 			Assert.NotNull(list2);
-		}
+		}	
 	}
 }
