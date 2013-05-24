@@ -1,0 +1,26 @@
+﻿<#@ template debug="true" hostSpecific="true" #>
+<#@ output extension=".cs" #>
+<#@ Assembly Name="System.Core.dll" #>
+<#@ Assembly Name="System.Xml.dll" #>
+<#@ Assembly Name="System.Xml.Linq.dll" #>
+<#@ Assembly Name="System.Windows.Forms.dll" #>
+<#@ import namespace="System" #>
+<#@ import namespace="System.IO" #>
+<#@ import namespace="System.Diagnostics" #>
+<#@ import namespace="System.Linq" #>
+<#@ import namespace="System.Xml.Linq" #>
+<#@ import namespace="System.Collections" #>
+<#@ import namespace="System.Collections.Generic" #> 
+<#   
+   var types = new[] { "int", "long", "short", "bool", "decimal", "float", "double", "uint", "ushort", "ulong" };
+#>
+/*
+<# foreach (var type in types) { #>
+
+	public static Option<<#= type #>> Parse(string value, Action<<#= type #>> func)
+	{
+		return Parse(<#= type #>.TryParse, value, func);
+	}
+<# } #>
+
+*/

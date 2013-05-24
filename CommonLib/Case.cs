@@ -35,10 +35,9 @@ namespace CommonLib
 
 		public Case<TType> If(Func<bool> condition, Func<TType> value)
 		{
-			if (condition == null)
-				throw new ArgumentNullException("condition");
-			if (value == null)
-				throw new ArgumentNullException("value");
+			Ensure
+				.Is(() => condition).NotNull()
+				.Is(() => value).NotNull();
 
 			if (Cases.ContainsKey(condition))
 				Cases[condition] = value;
