@@ -9,9 +9,9 @@ namespace CommonLib
 {
 	public struct Validate<TValue>
 	{
-		private TValue _value;
-		private Func<TValue, bool> _predicate;
-		private readonly bool _isThrowException;
+		private TValue _Value;
+		private Func<TValue, bool> _Predicate;
+		private readonly bool _IsThrowException;
 
 		public Validate(TValue value)
 			: this(value, _ => true)
@@ -21,24 +21,24 @@ namespace CommonLib
 
 		public Validate(TValue value, Func<TValue, bool> predicate, bool isThrowException = true)
 		{
-			_value = value;
-			_predicate = predicate;
-			_isThrowException = isThrowException;
+			_Value = value;
+			_Predicate = predicate;
+			_IsThrowException = isThrowException;
 		}
 
 		public Func<TValue, bool> Predicate
 		{
-			get { return _predicate; }
-			set { _predicate = value; }
+			get { return _Predicate; }
+			set { _Predicate = value; }
 		}
 
 		public TValue Value
 		{
-			get { return _value; }
+			get { return _Value; }
 			set
 			{
 				if (Predicate(value))
-					_value = value;
+					_Value = value;
 				else if (IsThrowException)
 					throw new ConstraintException(string.Format("Invalid value of Validate<{0}>!", typeof(TValue).FullName));
 			}
@@ -46,7 +46,7 @@ namespace CommonLib
 
 		public bool IsThrowException
 		{
-			get { return _isThrowException; }
+			get { return _IsThrowException; }
 		}
 	}
 }
