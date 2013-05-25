@@ -8,13 +8,13 @@ namespace CommonLib
 {
 	public class Bindable<TValue>
 	{
-		private Func<TValue> _valueGetter;
-		private Action<TValue> _valueSetter;
+		private Func<TValue> _ValueGetter;
+		private Action<TValue> _ValueSetter;
 
 		public TValue Value
 		{
-			get { return _valueGetter(); }
-			set { _valueSetter(value); }
+			get { return _ValueGetter(); }
+			set { _ValueSetter(value); }
 		}
 
 		public Bindable(Func<TValue> getter, Action<TValue> setter)
@@ -27,8 +27,8 @@ namespace CommonLib
 			Ensure.Are(getter, setter)
 				  .NotNull();
 
-			_valueGetter = getter;
-			_valueSetter = setter;
+			_ValueGetter = getter;
+			_ValueSetter = setter;
 		}
 	}
 
