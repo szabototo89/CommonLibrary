@@ -24,9 +24,7 @@ namespace CommonLib.WPF
 		public event EventHandler CanExecuteChanged;
 
 		public DelegateCommand(Action<T> execute)
-			: this(null, execute)
-		{
-		}
+			: this(null, execute) { }
 
 		public DelegateCommand(Predicate<T> canExecute, Action<T> execute)
 		{
@@ -50,7 +48,7 @@ namespace CommonLib.WPF
 		public static DelegateCommand<T> Instance(Action<T> execute)
 		{
 			return Instance(null, execute);
-		} 
+		}
 
 		public static DelegateCommand<T> Instance(Predicate<T> canExecute, Action<T> execute)
 		{
@@ -59,8 +57,7 @@ namespace CommonLib.WPF
 
 		protected void OnCanExecuteChanged()
 		{
-			if (CanExecuteChanged != null)
-			{
+			if (CanExecuteChanged != null) {
 				CanExecuteChanged(this, EventArgs.Empty);
 			}
 		}

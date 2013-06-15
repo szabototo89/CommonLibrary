@@ -19,8 +19,6 @@ namespace CommonLib.WPF
 			for (var i = 0; i < count; i++)
 				yield return VisualTreeHelper.GetChild(reference, i);
 
-			LogicalTreeHelper.
-
 		}
 	}
 }

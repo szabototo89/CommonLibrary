@@ -7,9 +7,7 @@ namespace CommonLib
 		public static TType Init<TType>(ref TType that, Func<TType> initialization)
 			where TType : class
 		{
-			if (that == null)
-				that = initialization();
-			return that;
+			return that ?? (that = initialization());
 		}
 	}
 }

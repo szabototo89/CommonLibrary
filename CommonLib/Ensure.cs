@@ -27,12 +27,22 @@ namespace CommonLib
 
 		public static IEnumerable<Ensure<TValue>> Are<TValue>(params TValue[] values)
 		{
+			if (values == null) throw new ArgumentNullException("values");
 			return values.Select(value => new Ensure<TValue>(value));
 		}
 
 		public static IEnumerable<Ensure<object>> Are(params object[] values)
 		{
+			if (values == null) throw new ArgumentNullException("values");
 			return values.Select(value => new Ensure<object>(value));
+		}
+
+		public static IEnumerable<EnsureExpression<TValue>> Are<TValue>(params Expression<Func<TValue>>[] values)
+		{
+			if (values == null)
+				throw new ArgumentNullException("values");
+
+			return values.Select(value => new EnsureExpression<TValue>(value));
 		}
 
 		public static Ensure<Action> Do(Action method)
@@ -61,6 +71,9 @@ namespace CommonLib
 
 		internal EnsureExpression(Expression<Func<TValue>> valueExpression)
 		{
+			if (valueExpression == null) 
+				throw new ArgumentNullException("valueExpression");
+
 			ValueExpression = valueExpression.Body as MemberExpression;
 			if (ValueExpression == null)
 				throw new InvalidConstraintException("Type of 'ValueExpression' must be a MemberExpression!");
@@ -75,6 +88,8 @@ namespace CommonLib
 		{
 			if (values == null)
 				throw new ArgumentNullException("values");
+			if (action == null) 
+				throw new ArgumentNullException("action");
 
 			var _values = (values as Ensure<TValue>[]) != null ? values : values.ToArray();
 
@@ -87,7 +102,7 @@ namespace CommonLib
 		public static EnsureExpression<TReturns> Is<TValue, TReturns>(this EnsureExpression<TValue> that, Expression<Func<TReturns>> value)
 		{
 			return Ensure.Is(value);
-		} 
+		}
 
 		public static Ensure<TReturns> Is<TValue, TReturns>(this Ensure<TValue> that, TReturns value)
 		{
@@ -144,7 +159,7 @@ namespace CommonLib
 				throw new ArgumentNullException("that");
 
 			return NotNull(that, new ArgumentNullException(that.MemberName));
-		} 
+		}
 
 		public static Ensure<TValue> NotNull<TValue>(this Ensure<TValue> that, string parameterName = "") where TValue : class
 		{
@@ -239,7 +254,7 @@ namespace CommonLib
 				throw exception;
 
 			return that;
-		} 
+		}
 
 		public static IEnumerable<Ensure<TValue>> Require<TValue>(this IEnumerable<Ensure<TValue>> values, Predicate<TValue> predicate, Exception exception)
 		{
@@ -318,12 +333,10 @@ namespace CommonLib
 				throw new ArgumentNullException("that");
 
 			return new Ensure<Action>(() => {
-				try
-				{
+				try {
 					that.Value();
 				}
-				catch (TException ex)
-				{
+				catch (TException ex) {
 					if (exceptionHandler != null)
 						exceptionHandler(ex);
 				}

@@ -16,7 +16,7 @@ namespace CommonLib.Tests
 			Option<int> i = 10;
 
 			Assert.DoesNotThrow(() =>
-				i.If(_ => Console.WriteLine("Hello World!"))
+				i.IsSuccess(_ => Console.WriteLine("Hello World!"))
 				 .Otherwise(() => Console.WriteLine("Sorryyy.")));
 		}
 	}

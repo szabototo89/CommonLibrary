@@ -41,7 +41,7 @@ namespace CommonLib.WPF
 				throw new ArgumentException("Not supported expression!", "expression");
 
 			return OnPropertyChanged(body.Member.Name);
-		}
+		}						   
 
 		/// <summary>
 		/// Tulajdonság értékének megváltoztatását jelző metódus
@@ -49,13 +49,13 @@ namespace CommonLib.WPF
 		protected ViewModelBase OnPropertyChanged(params string[] propertyNames)
 		{
 			foreach (var prop in propertyNames)
-				OnPropertyChanged(prop);
+				OnPropertyChanged(prop);			
 			return this;
 		}
 
 		/// <summary>
 		/// Tulajdonság értékének megváltoztatását jelző metódus
-		/// </summary>
+		/// </summary>									
 		protected virtual ViewModelBase OnPropertyChanged(string propertyName)
 		{
 			PropertyChangedEventHandler handler = PropertyChanged;
