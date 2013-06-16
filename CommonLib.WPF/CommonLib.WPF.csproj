@@ -48,6 +48,7 @@
     <Compile Include="ActionCommand.cs" />
     <Compile Include="BuilderControl\IBuilderFactory.cs" />
     <Compile Include="ControlHelper.cs" />
+    <Compile Include="Bindings\DebugBinding.cs" />
     <Compile Include="Converters\DebugConverter.cs" />
     <Compile Include="DelegateCommand.cs" />
     <Compile Include="Extensions\PointExtension.cs" />
@@ -63,6 +64,9 @@
       <Project>{bf060726-16c4-438e-97f1-c1a2617de8c9}</Project>
       <Name>CommonLib</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="MarkupExtensions\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

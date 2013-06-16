@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using CommonLib.WPF.Demo.ViewModels;
 using IronPython.Hosting;
 using Microsoft.Scripting.Hosting;
 
@@ -27,9 +28,10 @@ namespace CommonLib.WPF.Demo
 		public MainWindow()
 		{
 			InitializeComponent();
+			DataContext = new MainWindowContext();
 		}
 
-		private void PART_CompileButton_Click(object sender, RoutedEventArgs e)
+		/*private void PART_CompileButton_Click(object sender, RoutedEventArgs e)
 		{
 			try {
 				PART_ResultTextBlock.Background = new SolidColorBrush(Colors.Transparent);
@@ -59,6 +61,6 @@ namespace CommonLib.WPF.Demo
 					WindowState = WindowState.Normal;
 				DragMove();
 			}
-		}
+		} */
 	}
 }

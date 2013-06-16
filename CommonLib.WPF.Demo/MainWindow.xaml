@@ -1,13 +1,13 @@
 ﻿<Window x:Class="CommonLib.WPF.Demo.MainWindow"
 				xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
 				xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+				xmlns:Bindings="clr-namespace:CommonLib.WPF.Bindings;assembly=CommonLib.WPF"
+				xmlns:System="clr-namespace:System;assembly=mscorlib"
+				xmlns:MarkupExtensions="clr-namespace:CommonLib.WPF.MarkupExtensions;assembly=CommonLib.WPF"
 				Title="MainWindow"
-				WindowStyle="None"
-				ResizeMode="NoResize"
-				BorderThickness="0"
 				Height="350"
 				Width="525">
-	<Window.Template>
+	<!--<Window.Template>
 		<ControlTemplate TargetType="Window">
 			<Border Background="DarkSlateGray"
 							BorderThickness="1"
@@ -60,5 +60,19 @@
 							 AcceptsTab="True"
 							 x:Name="PART_SourceCode" />
 		</DockPanel>
-	</DockPanel>
+	</DockPanel>-->
+
+	<Grid>
+		<Grid.RowDefinitions>
+			<RowDefinition Height="Auto" />
+			<RowDefinition Height="*" />
+		</Grid.RowDefinitions>
+
+		<Label Content="{Binding Message}" />
+		<Button Grid.Row="1"
+						Content="{MarkupExtensions:Integer 100}"
+						Command="{Binding ShowMessageCommand}"
+						CommandParameter="Hello World!" />
+
+	</Grid>
 </Window>
